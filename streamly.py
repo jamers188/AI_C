@@ -6,7 +6,6 @@ import time
 import json
 import requests
 import base64
-from openai import OpenAI, OpenAIError
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
