@@ -15,7 +15,6 @@ logging.basicConfig(level=logging.INFO)
 NUMBER_OF_MESSAGES_TO_DISPLAY = 20
 API_DOCS_URL = "https://docs.streamlit.io/library/api-reference"
 
-# API Key (Hardcoded here, ensure security for production use)
 OPENAI_API_KEY = "sk-AKBO1dWZb57s0GtpgG89k-j41dfBlrn_kg4_aBZdBiT3BlbkFJu_ccb3b62hKnFjJoqWuUX9aYYgdabz91w7hTDxQiQA"
 if not OPENAI_API_KEY:
     st.error("Please provide your OpenAI API key.")
@@ -23,8 +22,19 @@ if not OPENAI_API_KEY:
 
 # Assign OpenAI API Key
 openai.api_key = OPENAI_API_KEY
-client = openai.OpenAI()
 
+# When you want to interact with OpenAI, use it directly like this:
+response = openai.ChatCompletion.create(
+    model="gpt-4",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Tell me a joke."}
+    ]
+)
+
+# Use the response in your app
+assistant_reply = response['choices'][0]['message']['content']
+st.write(assistant_reply)
 # Streamlit Page Configuration
 st.set_page_config(
     page_title="Streamly - An Intelligent Streamlit Assistant",
