@@ -26,7 +26,7 @@ configure(api_key=GEMINI_API_KEY)
 # Streamlit Page Configuration
 st.set_page_config(
     page_title="Streamly - An Intelligent Streamlit Assistant",
-    page_icon="imgs/avatar_streamly.png",
+    page_icon="avatar_streamly.png",
     layout="wide",
     initial_sidebar_state="auto",
     menu_items={
